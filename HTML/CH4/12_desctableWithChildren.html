@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- table 태그에 tbody가 자동으로 추가되므로 tbody 태그를 포함해 주어야한다. -->
+<html lang="en">
+<head>
+    <title>CSS3 Selector Basic</title>
+    <style>
+        table>tbody>tr>th {
+            color:skyblue;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>이름</th>
+            <th>지역</th>
+        </tr>
+        <tr>
+            <td>Joy</td>
+            <td>서울 서대문구 홍은동</td>
+        </tr>
+    </table>
+</body>
+</html>
