@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!-- 매개변수에 익명 함수를 곧바로 입력할 수도 있음 -->
+<html lang="en">
+<head>
+    <title>매개변수에 익명 함수 사용</title>
+    <script>
+        function callTenTimes(callback) {
+            for (var i=0; i < 5; i++) {
+                callback();
+            }
+        };
+        callTenTimes(function () {
+            alert('함수 호출');
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

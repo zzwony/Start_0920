@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>조건문</title>
+    <script>
+        var date = new Date();
+
+        //요소 추출
+        var hours = date.getHours();
+
+        if (hours == 6) {
+            alert('기상');
+            } else if (hours < 7) {
+                alert('아침운동');
+                } else if (hours < 8) {
+                    alert('학원 갈 준비');
+                    } else if (hours < 13) {
+                        alert('오전 수업');
+                        } else if (hours < 14) {
+                            alert('점심시간');
+                            } else if (hours < 18) {
+                                alert('3차 프로젝트 진행');
+                                } else if (hours < 23) {
+                                    alert('저녁시간');
+                                    } else {
+                                        alert('수면');}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

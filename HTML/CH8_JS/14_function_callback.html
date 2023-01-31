@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>함수 우선순위</title>
+    <script>
+        function callTenTimes(callback) {
+            for (var i=0; i < 3; i++) {
+                callback();
+            }
+        };
+        var callback = function () {
+            alert('함수 호출');
+        };
+
+        callTenTimes(callback);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

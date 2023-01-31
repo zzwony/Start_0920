@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- https://rintiantta.github.io/academy-html/guide/chapter9.html#%EA%B8%B0%EB%B3%B8-%EC%98%88%EC%A0%9C-9-2-%EB%B3%80%EC%88%98%EC%9D%98-%EC%84%A0%EC%96%B8%EA%B3%BC-%EC%B4%88%EA%B8%B0%ED%99%94 -->
+<html lang="en">
+<head>
+    <title>조건문</title>
+    <script>
+        //자바스크립트는 주석처리를 이렇게 한다.
+        // Date 객체를 선언 : 현재 시간 측정
+        var date = new Date();
+
+        //요소 추출
+        var year = date.getFullYear();
+        var month = date.getMonth();
+        var day = date.getDay();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+
+        if (month < 3 || month == 12) {
+            alert('겨울입니다.');
+            console.log('겨울');
+        } else if (month >= 3 && month <6) {
+            alert('봄입니다.');
+            console.log('봄');
+        } else if (month >= 6 && month < 9) {
+            alert('여름입니다.');
+            console.log('여름');
+        } else if (month >= 9 || month < 3) {
+            alert('가을입니다.');
+            console.log('가을');
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
