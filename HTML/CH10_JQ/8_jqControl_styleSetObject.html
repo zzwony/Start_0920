@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- 속성 값을 입력해 스타일 속성 지정 -->
+<html lang="en">
+<head>
+    <title>jQuery Basic</title>
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 스타일 적용
+            $('.box').css({
+                float: 'left',
+                margin: 10,
+                width: 100,
+                height: 100,
+                backgroundColor: 'red'
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</body>
+</html>
