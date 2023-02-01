@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document Object Model</title>
+    <script>
+        window.onload = function() {
+            // 변수 선언
+            var output = '';
+            for (var i=0; i < 10; i++) {
+                output += '<h1>Header - ' + i + '</h>';
+            }
+            document.body.innerHTML = output;
+        };
+    </script>
+</head>
+<body>
+    <h1>Header</h1>
+    <h1>Header</h1>
+    <h1>Header</h1>
+</body>
+</html>

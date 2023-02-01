@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!-- script 태그를 head 태그 내부에 삽입. -->
+<!-- head안에 script를 넣으면 장점으로 유지 보수에 유리-->
+<!-- 반면 파일 용량이 크면 기다림 현상 발생 -->
+<html lang="en">
+<head>
+    <title>Document Object Model</title>
+    <script>
+        window.onload = function() {
+            // h1 태그의 배경 색상을 변경
+            document.querySelector('h1').style.backgroundColor = 'red';
+            // h2 태그의 글자 색상을 변경
+            document.querySelector('h2').style.color = 'red';
+        };
+    </script>
+</head>
+<body>
+    <h1>Process - 1</h1>
+    <h2>Process - 2</h2>
+</body>
+</html>

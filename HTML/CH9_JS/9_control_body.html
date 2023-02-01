@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document Object Model</title>
+    <script>
+        window.onload = function() {
+            // 속성 세팅
+            // data-custom을 value로 저장한 것이다. 그래서 출력물은 value.
+            document.body.setAttribute('data-custom', 'value');
+
+            // 세팅한 속성을 가져온다는 뜻이다.
+            var dataCustom = document.body.getAttribute('data-custom');
+            // alert는 경고창이 뜬다.
+            alert(dataCustom);
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

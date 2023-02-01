@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document Object Model</title>
+    <script>
+        window.onload = function() {
+            // 문서 객체 선택
+            var header = document.getElementById('header');
+
+            // 문서 객체 조작
+            header.style.color = 'orange';
+            header.style.background = 'red';
+            // heaer 안에 있는 header 내용을 바꿔준다.
+            header.innerHTML = 'From JavaScript';
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">Header</h1>
+</body>
+</html>

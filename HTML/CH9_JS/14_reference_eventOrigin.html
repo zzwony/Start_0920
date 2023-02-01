@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!-- 이벤트 리스너 내부에서 this 키워드를 사용하면 -->
+<!-- 이벤트를 발생한 자기 자신을 의미한다. -->
+<!-- 자기 자신의 글자를 변경한다. -->
+<html lang="en">
+<head>
+    <title>Traditional Event</title>
+</head>
+<body>
+    <button id="button">버튼 - </button>
+    <script>
+        // function 부분을 리스너 라고 한다.
+        document.getElementById('button').onclick = function(){
+            this.textContent = this.textContent + '★';
+        };
+    </script>
+</body>
+</html>

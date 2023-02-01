@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Traditional Event - Default Event</title>
+    <script>
+        window.onload = function () {
+            var button = document.getElementById('button');
+
+            button.onclick = function () {
+                // false로 하면 눌러도 반응이 없고
+                // true로 하면 네이버 홈페이지로 넘어간다.
+                return true;
+            };
+        };
+    </script>
+</head>
+<body>
+    <a id="button" href="http://naver.com">버튼</a>
+
+</body>
+</html>

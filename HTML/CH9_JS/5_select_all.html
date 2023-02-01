@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document Object Model</title>
+    <script>
+        window.onload = function() {
+            // 문서 객체 선택
+            // 전부 다 바꿔준다.
+            var headers = document.querySelectorAll('h1');
+
+            for (var i=0; i < headers.length; i++) {
+                var header = headers[i];
+
+                // 문서 객체 조작
+                header.style.color = 'orange';
+                header.style.background = 'red';
+                header.innerHTML = 'From JavaScript';
+
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Header</h1>
+    <h1>Header</h1>
+    <h1>Header</h1>
+</body>
+</html>
