@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- jquery는 $로 시작하며 인자값으로 CSS selector를 줄 수 있다. -->
+<!-- 시작은 자바스크립트에서의 window.onload와 비슷하게 $(document).ready()에서 시작 -->
+<!-- ready는 일종의 제이쿼리 이벤트로 document 문서가 로드되었을 때 발생한다. -->
+<!-- js의 window.onload는 text, image, sound 등의 모든 내용을 로드한 뒤 실행되는 반면 -->
+<!-- 제이쿼리의 $(document).ready는 text 문서만 로딩하고 실행된다. -->
+<!-- 이미지나 사운드는 크기가 큰 만큼 로딩하는데 시간이 더 많이 소요된다. -->
+<html lang="en">
+<head>
+    <title>Document</title>
+    <!-- cdm 방식으로 jquery를 사용하겠다. -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('h1').css('color', 'yellow');
+            $('h1').css('background', 'black');            
+        });
+    </script>
+</head>
+<body>
+    <h1>Header</h1>
+    <h1>Header</h1>
+    <h1>Header</h1>
+</body>
+</html>
