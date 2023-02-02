@@ -11,14 +11,12 @@
             $('form').submit(function (event) {
                 // input 태그의 값을 추출
                 var value = $('input').val();
-                // 유효성 검사
-                // 한글 부분을 다 공백으로 처리하고, 값이 0이 나오면 다 한글이라는 뜻이다.
-                if (value.replace(/[가-힣]/g, '').length == 0){
+                // 유효성 검사 성공
+                if (value.replace(/[가-힣]/g,'').length == 0){
                     alert('과정을 진행합니다.')
                 } else {
                     // 유효성 검사 실패
                     alert('한글 이름을 입력해 주세요.');
-                    // 이벤트 진행을 막기
                     event.preventDefault();
                 }
             });
