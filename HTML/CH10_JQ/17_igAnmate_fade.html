@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!-- 기본 이벤트 제거를 통한 유효성 검사 -->
+<!-- 예를들어 한글 이름을 입력하지 않으면 입력 양식을 제출하지 않음 -->
+<html lang="en">
+<head>
+    <title>jQuery Basic</title>
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('button').click(function () {
+                $('.page').fadeToggle('slow');
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>Toggle Show</button>
+    <div class="page">
+        <h1>Lorem ipsum dolor sit amet.</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, distinctio.</p>
+    </div>
+</body>
+</html>

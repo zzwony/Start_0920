@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!-- text 매서드는 일반 글자처럼 출력되는 반면 html 매서드는 글자에 태그가 적용 -->
+<html lang="en">
+<head>
+    <title>jQuery Basic</title>
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            // nth-child: 자식 클래스
+            // text는 text 전체가 나온거고 html은 태그가 적용되었다.
+            $('h1:nth-child(1)').text('<a href="#">text()</a>');
+            $('h1:nth-child(2)').html('<a href="#">html()</a>');
+            $('h6').html('<a href="#">html()</a>');
+        });
+    </script>
+</head>
+<body>
+    <h1>Header - 0</h1>
+    <h1>Header - 0</h1>
+    <h6>Header - 0</h6>
+</body>
+</html>

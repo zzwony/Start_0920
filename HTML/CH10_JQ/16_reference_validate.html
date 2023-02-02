@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- 기본 이벤트 제거를 통한 유효성 검사 -->
+<!-- 예를들어 한글 이름을 입력하지 않으면 입력 양식을 제출하지 않음 -->
+<html lang="en">
+<head>
+    <title>jQuery Basic</title>
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 이벤트 연결
+            $('form').submit(function (event) {
+                // input 태그의 값을 추출
+                var value = $('input').val();
+                // 유효성 검사
+                // 한글 부분을 다 공백으로 처리하고, 값이 0이 나오면 다 한글이라는 뜻이다.
+                if (value.replace(/[가-힣]/g, '').length == 0){
+                    alert('과정을 진행합니다.')
+                } else {
+                    // 유효성 검사 실패
+                    alert('한글 이름을 입력해 주세요.');
+                    // 이벤트 진행을 막기
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <label>이름</label>
+        <input type="text">
+        <input type="submit">
+    </form>
+</body>
+</html>

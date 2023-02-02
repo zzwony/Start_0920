@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!-- html 메서드는 첫번째에 위치한 문서 객체의 글자 추출 -->
+<html lang="en">
+<head>
+    <title>jQuery Basic</title>
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 변수 선언
+            var text = $('h1').text();
+            var html = $('h1').html();
+
+            alert('text: ' + text);
+            alert('html: ' + html); // 첫번째 문서 객체의 글자 추출
+        });
+    </script>
+</head>
+<body>
+    <h1>Header - 0</h1>
+    <h1>Header - 1</h1>
+</body>
+</html>

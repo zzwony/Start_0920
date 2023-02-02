@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- 클래스 조작 매서드 : addClass 추가, removeClass 제거, toggleClass 전환 -->
+<html lang="en">
+<head>
+    <title>jQuery Basic</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .box.hover {
+            background-color: blue;
+            border-radius: 50px;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.box').hover(function(){
+                // hover를 해주면 style 변경
+                // hover란 마우스 커서를 객체에 두는 것
+                $('.box').addClass('hover');
+            }, function(){
+                // 스타일 변경
+                $('.box').removeClass('hover')
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- 이벤트 연결 2가지 방법 -->
+<!-- 2) 문서 객체를 조작하는 방법과 유사 -->
+<html lang="en">
+<head>
+    <title>jQuery Basic</title>
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#box').css({
+                width: 100,
+                height: 100,
+                background:'orange'
+                // 객체로 만들어 준다 key : valuse
+            }).on({
+                click: function() {
+                    $(this).css('background', 'red');
+                },
+                mouseenter:function() {
+                    $(this).css('background', 'blue');
+                },
+                mouseleave:function() {
+                    $(this).css('background', 'orange');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
