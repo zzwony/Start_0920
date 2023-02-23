@@ -1,0 +1,38 @@
+<script>    
+    $(function (){
+        	$("#talk_toggle").click(function (){
+          	$("#tt").toggle();
+          });
+    });
+</script>
+
+{% block content %}
+
+<br><br>
+<h2> Q2. 다음 문장을 읽고 문맥상 가장 뜻이 비슷한 보기를 골라주세요. <a  style="color:#DDA0DD;" href="#openModal5">  info</a></h2>    
+<p id="sentence">{{query}}</p>
+<br>					             
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="talkdefault" id="talkdefault3">
+    <label class="form-check-label" id = 'talk_radio_1' for="talkdefault3"> {{answ}}</label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="talkdefault" id="talkdefault4">
+    <label class="form-check-label" id = 'talk_radio_2' for="talkdefault4"> {{answ1}}</label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="talkdefault" id="talkdefault5">
+    <label class="form-check-label" id = 'talk_radio_3' for="talkdefault5"> {{answ2}}</label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="talkdefault" id="talkdefault6">
+    <label class="form-check-label" id = 'talk_radio_4' for="talkdefault6"> {{answ3}}</label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="talkdefault" id="talkdefault7">
+    <label class="form-check-label" id = 'talk_radio_5'for="talkdefault7"> {{nansw}}</label>
+</div>         
+<br>
+<button id="talk_toggle">정답</button> <button id="tt" style="display: none;">{{answ}}</button>				
+{% endblock %}
+

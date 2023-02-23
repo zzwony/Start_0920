@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Early Bird</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		<link rel="stylesheet" href={{ url_for('static',filename="assets/css/main.css")}} />
+		<noscript><link rel="stylesheet" href={{ url_for('static',filename="assets/css/noscript.css")}} /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="/" class="logo">
+									<span class="symbol"><img src={{ url_for('static',filename="images/logo.svg")}} alt="" /></span><span class="title">Early Bird</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+				    <nav id="menu">
+					    <h2>Menu</h2>
+					    <ul>
+						    <li><a href="/">Home</a></li>
+						    <li><a href="/level_1">K-pop Funny</a></li>
+						    <li><a href="/level_2">Talk Funny</a></li>
+						    <li><a href="/level_3">News Funny</a></li>
+						    <li><a href="/level_4">About</a></li>
+					    </ul>
+				    </nav>
+
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<header>
+								<h1> 어서오세요. <a href="https://github.com/Ryusori/">얼리버드</a>에 오신걸 환영합니다. <br/>  
+									대화가 재미있다~</h1>
+								<p>한국식 대화는 처음이지?? <br/>
+									SNS의 형식의 한국식 대화를 통해 재미있게 문제도 풀며 공부할 수 있는 신개념 학습 프로그램입니다. </p>
+							</header>
+							<section class="tiles">
+								<article class="style1">
+									<span class="image">
+										<img src={{ url_for('static',filename="images/s_/공공.png")}} alt="" />
+									</span>
+									<a href="/talk_0">
+										<h2>탈퇴 문의</h2>
+										<div class="content">
+											<p>Customer service</p>
+										</div>
+									</a>
+								</article>
+								<article class="style2">
+									<span class="image">
+										<img src={{ url_for('static',filename="images/s_/상품.png")}} alt="" />
+									</span>
+									<a href="/talk_1">
+										<h2>상품 문의</h2>
+										<div class="content">
+											<p>Product information</p>
+										</div>
+									</a>
+								</article>
+								<article class="style3">
+									<span class="image">
+										<img src={{ url_for('static',filename="images/s_/숙박.jpg")}} alt="" />
+									</span>
+									<a href="/talk_2">
+										<h2>숙박 예약</h2>
+										<div class="content">
+											<p>Booking</p>
+										</div>
+									</a>
+								</article>
+								<article class="style4">
+									<span class="image">
+										<img src={{ url_for('static',filename="images/s_/레저.jpg")}} alt="" />
+									</span>
+									<a href="/talk_3">
+										<h2>프로그램 문의</h2>
+										<div class="content">
+											<p>Program information</p>
+										</div>
+									</a>
+								</article>
+								<article class="style5">
+									<span class="image">
+										<img src={{ url_for('static',filename="images/s_/미술관.jpg")}} alt="" />
+									</span>
+									<a href="/talk_4">
+										<h2>요금 문의</h2>
+										<div class="content">
+											<p>Price information</p>
+										</div>
+									</a>
+								</article>
+							    <article class="style5">
+									<span class="image">
+										<img src={{ url_for('static',filename="images/s_/한식.png")}} alt="" />
+									</span>
+									<a href="/talk_5">
+										<h2>영업시간 문의</h2>
+										<div class="content">
+											<p>Working hours</p>
+										</div>
+									</a>
+								</article>
+							</section>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src={{ url_for('static',filename="assets/js/jquery.min.js")}}></script>
+			<script src={{ url_for('static',filename="assets/js/browser.min.js")}}></script>
+			<script src={{ url_for('static',filename="assets/js/breakpoints.min.js")}}></script>
+			<script src={{ url_for('static',filename="assets/js/util.js")}}></script>
+			<script src={{ url_for('static',filename="assets/js/main.js")}}></script>
+
+	</body>
+</html>

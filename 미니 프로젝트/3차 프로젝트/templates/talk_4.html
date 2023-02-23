@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Early Bird - Conversation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	    <link rel="stylesheet" href={{ url_for('static',filename="assets/css/main.css")}} /> 
+		<noscript><link rel="stylesheet" href={{ url_for('static',filename="assets/css/noscript.css")}} /></noscript>
+	    <script src="https://code.jquery.com/jquery-latest.min.js"></script>		
+        <script>$(function (){
+        	$("#btn_toggle").click(function (){
+          	$("#Toggle").toggle();
+          });
+        });
+        
+        </script>
+        <style>
+            .video-container {position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow: hidden;}
+            .video-container iframe,.video-container object,.video-container embed {position:absolute;top: 0;left:0;width:100%;height:100%;}        
+        </style>
+    <style>
+        .modalWindow {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0,0,0,0.2);
+        z-index: 99999;
+        opacity:0;
+        pointer-events: none;
+        text-align:center;
+        }
+        .modalWindow:target {
+        opacity:1;
+        pointer-events: auto;
+        }
+        .modalWindow > div {
+        width: 80%;
+        position: relative;
+        margin: 10% auto;
+        background: #fff;
+        }
+    </style>         
+	</head>
+	<body class="is-preload">
+ 	    {% include 'talk_modal.html'  ignore missing %}	 		    
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="/" class="logo">
+									<span class="symbol"><img src={{ url_for('static',filename="images/logo.svg")}} alt="" /></span><span class="title">Early Bird</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+	        	<!-- Menu -->
+				    <nav id="menu">
+					    <h2>Menu</h2>
+					    <ul>
+						    <li><a href="/">Home</a></li>
+						    <li><a href="/level_1">K-pop Funny</a></li>
+						    <li><a href="/level_2">Talk Funny</a></li>
+						    <li><a href="/level_3">News Funny</a></li>
+						    <li><a href="/level_4">About</a></li>
+					    </ul>
+				    </nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h2>주제: 요금 문의</h2>
+							    
+                            <hr > 
+
+ 							{% include 'talk_tts(3번문제).html'  ignore missing %}<br>
+ 							
+                            <h3> [ 대화 ] </h3>
+							<p id='doc'>
+							    {% for line in doc %}
+							        "{{line}}"<br>
+							    {% endfor %}
+							</p>
+
+							<br >
+							
+ 							<hr>
+
+ 							<!--문제 1번-->
+ 							{% include 'talk_(1번문제).html'  ignore missing %}
+ 							<hr>
+ 							
+ 							<!--문제 2번-->
+ 							{% include 'talk_sts(2번문제).html'  ignore missing %}
+ 							<hr>
+ 							
+ 							<!--QA 일상대화-->
+ 							{% include 'qa.html'  ignore missing %}
+ 							<hr>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+	    <!-- Scripts -->
+        	<script src={{ url_for('static',filename="assets/js/jquery.min.js")}}></script>
+			<script src={{ url_for('static',filename="assets/js/browser.min.js")}}></script>
+			<script src={{ url_for('static',filename="assets/js/breakpoints.min.js")}}></script>
+			<script src={{ url_for('static',filename="assets/js/util.js")}}></script>
+			<script src={{ url_for('static',filename="assets/js/main.js")}}></script>
+
+	</body>
+</html>

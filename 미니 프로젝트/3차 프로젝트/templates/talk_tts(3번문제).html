@@ -1,0 +1,8 @@
+{% block content %}
+<br>
+<h2>다음은 한국인의 일상 대화 입니다.</h2>
+<audio id = "TTS_talk" controls >
+    <source src={{url_for('static',filename=tts_talk_audio)}} type="audio/mp3">
+</audio>
+<br>
+{% endblock %}

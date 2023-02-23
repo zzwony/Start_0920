@@ -1,0 +1,110 @@
+<script>    
+    $(function (){
+        	$("#toggle_t").click(function (){
+          	$("#tt0").toggle();
+          });
+    });
+</script>
+
+{% block content %}
+
+<br><br> 
+<h2> Q1. 문제 생성 버튼을 누른 후 나오는 문장의 유형을 맞춰보세요.<a  style="color:#DDA0DD;" href="#openModal4">  info</a></h2>    
+<li>극성 : 문장의 극성(긍정, 부정, 미정)</li>
+<li>시제 : 문장의 시제 (과거, 현재, 미래)</li>
+<li>확실성 : 문장의 확실성 (확실, 불확실)</li>
+<br>
+<input type = "button" id="talk_problem" value = "문제 생성">                             
+<script>
+    $('#talk_problem').click(function(){
+        var txt = $('#doc').text();
+        $.ajax({
+            type: 'POST',
+            url: '{{url_for("ajax_talk_create_problem")}}',
+            data: JSON.stringify({'text':txt}),
+            dataType : 'JSON',
+            contentType: "application/json",
+            success: function(data){
+                $("#t_sentence").html(data.result2) ;
+                $("#sentencetype_user").html('') ;
+                $("#sentencetype_ai").html('') ;
+                // $("input:radio[name='s_type']").prop('checked', false);
+                $("input:radio[name='s_pol']").prop('checked', false);
+                $("input:radio[name='s_tense']").prop('checked', false);
+                $("input:radio[name='s_sure']").prop('checked', false);
+            },
+            error: function(request, status, error){
+                alert('ajax 통신 실패')
+                alert(error);
+            }
+        })
+    })
+</script>
+<p><div id="t_sentence"></div></p>
+<span class="form-check">
+    <input class="form-check-input" type="radio" name="s_pol" id="긍정">
+    <label class="form-check-label" for="긍정"> 긍정</label>
+</span>
+<span class="form-check">
+    <input class="form-check-input" type="radio" name="s_pol" id="부정">
+    <label class="form-check-label" for="부정"> 부정</label>
+</span> 
+<span class="form-check">
+    <input class="form-check-input" type="radio" name="s_pol" id="미정">
+    <label class="form-check-label" for="미정">미정</label>
+</span> 
+<br>
+<span class="form-check">
+    <input class="form-check-input" type="radio" name="s_tense" id="과거">
+    <label class="form-check-label" for="과거"> 과거</label>
+</span>
+<span class="form-check">
+    <input class="form-check-input" type="radio" name="s_tense" id="미래">
+    <label class="form-check-label" for="미래"> 미래</label>
+</span>  
+<span class="form-check">
+    <input class="form-check-input" type="radio" name="s_tense" id="현재">
+    <label class="form-check-label" for="현재"> 현재</label>
+</span> 
+<br>
+<span class="form-check">
+    <input class="form-check-input" type="radio" name="s_sure" id="불확실">
+    <label class="form-check-label" for="불확실"> 불확실</label>
+</span>
+<span class="form-check">
+    <input class="form-check-input" type="radio" name="s_sure" id="확실">
+    <label class="form-check-label" for="확실"> 확실</label>
+</span>
+<br>
+<input type = "button" id="talk_type" value = "제출"> 
+<span class="fa-2x" id = "sum_ing" style="display:none"><i class="fas fa-cog fa-spin"></i></span>
+<br>                          
+<h4><div id = 'sentencetype_user'></div><br>
+<div id= 'sentencetype_ai'></div></h4> 
+<script>
+    $('#talk_type').click(function(){
+        $("#sum_ing").show();
+        var id2 =  $("input[type=radio][name=s_pol]:checked").attr('id')
+        var id3 =  $("input[type=radio][name=s_tense]:checked").attr('id')
+        var id4 =  $("input[type=radio][name=s_sure]:checked").attr('id')
+        var txt = $("#t_sentence").text();
+        var postdata = {'id': (id2+','+ id3+','+ id4), 'text': txt };
+        $.ajax({
+            type: 'POST',
+            url: '{{url_for("ajax_sentence_type")}}',
+            data: JSON.stringify(postdata),
+            dataType : 'JSON',
+            contentType: "application/json",
+            success: function(data){
+                $("#sentencetype_user").html('YOU: ' + postdata['id']) ;
+                $("#sentencetype_ai").html('AI: ' + data.result2) ;
+                $("#sum_ing").hide();
+            },
+            error: function(request, status, error){
+                alert('ajax 통신 실패')
+                alert(error);
+            }
+        })
+    })
+{% endblock %}
+</script>

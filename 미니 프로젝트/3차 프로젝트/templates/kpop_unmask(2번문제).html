@@ -1,0 +1,75 @@
+<script>    
+    $(function (){
+        	$("#mask_toggle").click(function (){
+          	$("#Toggle2").toggle();
+          });
+    });
+</script>
+{% block content %}
+
+
+<h2> Q2. 다음 보기 중 빈칸에 들어갈 말로 가장 어울리지 않는 단어를 골라주세요.<br>
+    문제 생성을 먼저 눌러주세요. <a  style="color:#DDA0DD;" href="#openModal2">  info</a></h2>
+
+<input type = "button" id="create_problem2" value = "문제 생성">  
+<br>
+<script>
+    $("#create_problem2").click(function (){
+        var postdata = $("#titles").text();
+        $.ajax({
+            type: 'POST',
+            url: '{{url_for("ajax_create_mask")}}',
+            data: JSON.stringify(postdata),
+            dataType : 'JSON',
+            contentType: "application/json",         
+            success: function(data){
+                $("#kpop_texts").text(data.result2['question_text']);
+                $("#Toggle2").text(data.result2['words'][1]);
+                $("#kpop_word_radio_1").text(data.result2['words'][0][0]);
+                $("#kpop_word_radio_2").text(data.result2['words'][0][1]);
+                $("#kpop_word_radio_3").text(data.result2['words'][0][2]);
+                $("#kpop_word_radio_4").text(data.result2['words'][0][3]);
+                $("#Toggle2").hide();
+                $("#flexRadioDefault5").show();
+                $("#flexRadioDefault6").show();
+                $("#flexRadioDefault7").show();
+                $("#flexRadioDefault8").show();
+                
+                $("#kpop_texts").show(); 
+                $("#kpop_word_radio_1").show();
+                $("#kpop_word_radio_2").show();
+                $("#kpop_word_radio_3").show();
+                $("#kpop_word_radio_4").show();
+
+                $("input:radio[name='flexRadioDefault_1']").prop('checked', false);
+            },
+            error: function(request, status, error){
+                alert('ajax 통신 실패')
+                alert(error);
+            }         
+        })
+    });
+</script>
+<br>
+<br>
+<p id= 'kpop_texts' style="display: none;"></p>
+<br>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault_1" id="flexRadioDefault5">
+    <label class="form-check-label" id = 'kpop_word_radio_1' for="flexRadioDefault5" style="display: none;"> </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault_1" id="flexRadioDefault6" >
+    <label class="form-check-label" id = 'kpop_word_radio_2' for="flexRadioDefault6" style="display: none;"> </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault_1" id="flexRadioDefault7" >
+    <label class="form-check-label" id = 'kpop_word_radio_3' for="flexRadioDefault7"style="display: none;"> </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault_1" id="flexRadioDefault8" >
+    <label class="form-check-label" id = 'kpop_word_radio_4' for="flexRadioDefault8" style="display: none;"> </label>
+</div>         
+<br>
+<button id="mask_toggle">정답</button> <button id="Toggle2" style="display: none;"></button>				
+{% endblock %}

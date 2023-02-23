@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>css</title>
+  </head>
+  <style media="screen">
+
+    .in-line{
+      width:350px;
+      height:40px;
+    }
+    input{
+      margin:0;
+    }
+    input[type="text"]{
+      width:70%;
+      height:100%;
+      border:none;
+      font-size:1em;
+      padding-left: 5px;
+      font-style: oblique;
+      display:inline;
+      outline:none;
+      box-sizing: border-box;
+      color:black;
+
+    }
+    input[type=button]{
+      width: 30%;
+      height:100%;
+      background-color: lightgray;
+      border:none;
+      background-color: white;
+      font-size:1em;
+      color:#042AaC;
+      outline:none;
+      display:inline;
+      margin-left: -10px;
+      box-sizing: border-box;
+    }
+    input[type=button]:hover{
+      background-color: lightgray;
+    }
+  </style>
+
+{% block content %}
+
+<br><br>
+<h2> 위로봇과 일상적인 대화를 나눠보세요. <a  style="color:#DDA0DD;" href="#openModal6">info</a></h2>
+
+    <div class="chat ch1">
+        <div class="textbox" style="color:#1E90FF;">안녕하세요! 만나서 반갑습니다. 일상적인 질문을 해보세요.</div>
+    </div>
+    <div class="chat ch2">
+        <input class="textbox" style="color:#EE82EE;" type="text" id='chat_input'  placeholder="대화를 적어 주세요.">
+        <input type = "button" id="chat_button" value = "보내기"> 	
+    </div>
+    <script>
+        $('#chat_button').click(function(){
+            var txt = $('#chat_input').val();
+            $.ajax({
+                type: 'POST',
+                url: '{{url_for("ajax_chat_generation")}}',
+                data: JSON.stringify({'text':txt}),
+                dataType : 'JSON',
+                contentType: "application/json",
+                success: function(data){
+                    $("#chat_answer").val(data.result2) ;
+                },
+                error: function(request, status, error){
+                    alert('ajax 통신 실패')
+                    alert(error);
+                }
+            })
+        })
+    </script>    
+    <input class="form-control" type="text" id='chat_answer' style="color:#1E90FF;">
+    <br><br>
+
+{% endblock %}

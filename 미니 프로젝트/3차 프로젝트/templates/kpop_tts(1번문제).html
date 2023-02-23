@@ -1,0 +1,25 @@
+<script>
+$(function (){
+	$("#btn_toggle_rylics").click(function (){
+	if($("#rylics_toggle").css("display") == "none"){
+		$("#rylics_toggle").show();
+	}else{
+		$("#rylics_toggle").hide();
+	}	    
+//   	$("#rylics_toggle").show();
+  });          
+});
+</script>
+{% block content %}
+<h2> Q1. 다음 들려주는 가사를 듣고 한글로 적어보세요.<a  style="color:#DDA0DD;" href="#openModal1">  info</a></h2>
+<audio id = "TTS" controls >
+    <source src={{url_for('static',filename=tts_audio)}} type="audio/mp3">
+</audio>
+<input class="form-control" type="text" placeholder="< 정답을 적어주세요. >">
+<br >
+<br >
+<button id="btn_toggle_rylics">정답</button>
+<p id="rylics_toggle"  style="display: none;">{{rylics_tts}}</p>
+<br >
+<br >
+{% endblock %}

@@ -1,0 +1,38 @@
+{% block content %}
+<div id="openModal4" class="modalWindow">
+	<div> 
+		<h2>Sentence Type Classification</h2>
+		<p>이 문제는 <a href="https://dacon.io/competitions/official/236037/overview/description" target="_blank">문장유형분류AI경진대회</a> 데이터 셋을 이용하여<br>
+		<a href="https://huggingface.co/klue/roberta-small" target="_blank">klue/roberta-small모델</a>에 downstream task를 fine tuning하여 만들어 보았습니다. <br>
+		긍정, 부정, 미정의 경우 대회 데이터로는 부족하다고 판단하여 <br>
+		<a href="https://github.com/e9t/nsmc" target="_blank">NSMC 데이터</a>를 기존 모델에 다시 Training 한 후 <br>
+		score에 따라 긍정 > 미정( 중간단계) > 부정 순서로 라벨링 하였습니다.<br>
+		단순히 문장의 종결어미가 아닌 실제 문장의 전달하는 내용을 기준으로<br>
+        긍정/미정/부정을 판단하면 됩니다.<br>
+		</p><a href="#ok" title="Ok" class="ok">Ok</a>
+	</div>
+</div>   
+<div id="openModal5" class="modalWindow">
+	<div>
+		<h2>Semantic Textual Similarity</h2>
+		<p>이 문제는 <a href="https://huggingface.co/Huffon/sentence-klue-roberta-base" target="_blank">STS 문장단위 임베딩</a>을 한 후 <br>
+         코사인 유사도를 측정해 의미상 가장 유사한 문장을 고르는 문제입니다.<br>
+         대화 상황에서 이루어지는 문장들이 보기로 주어지기 때문에<br>
+         대부분 비슷한 의미를 가지지만<br>
+         가장 유사하다고 생각하는 문장을 고르시면 됩니다<br></p>
+        		
+		<a href="#ok" title="Ok" class="ok">Ok</a>
+	</div>
+</div>   
+<div id="openModal6" class="modalWindow">
+	<div>
+		<h2>Question & Choosing Answer</h2>
+		<p>이 문제는 <a href="https://www.sbert.net/docs/hugging_face.html#sharing-your-models" target="_blank">QA봇 모델</a>을 사용해<br>
+		<a href="https://raw.githubusercontent.com/songys/Chatbot_data/master/ChatbotData.csv" target="_blank"> 데이터</a>를 학습 시켜 간단한 대화가 가능 합니다.<br>
+		질문이 들어오면 embedding한 후 가장 유사한 질문을 찾고<br>
+		거기에 pair 되어 있는 답을 출력하는 형태입니다.<br></p>
+		
+		<a href="#ok" title="Ok" class="ok">Ok</a>
+	</div>
+</div> 
+{% endblock %}

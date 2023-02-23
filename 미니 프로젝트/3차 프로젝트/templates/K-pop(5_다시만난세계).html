@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Early Bird - K-pop</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href={{ url_for('static',filename="assets/css/main.css")}} /> 
+		<noscript><link rel="stylesheet" href={{ url_for('static',filename="assets/css/noscript.css")}} /></noscript>
+	    <script src="https://code.jquery.com/jquery-latest.min.js"></script>		
+        <script>$(function (){
+        	$("#btn_toggle").click(function (){
+          	$("#Toggle").toggle();
+          });
+        });
+        </script>
+        <style>
+            .video-container {position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow: hidden;}
+            .video-container iframe,.video-container object,.video-container embed {position:absolute;top: 0;left:0;width:100%;height:100%;}        
+        </style>
+    <style>
+        .modalWindow {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0,0,0,0.2);
+        z-index: 99999;
+        opacity:0;
+        pointer-events: none;
+        text-align:center;
+        }
+        .modalWindow:target {
+        opacity:1;
+        pointer-events: auto;
+        }
+        .modalWindow > div {
+        width: 80%;
+        position: relative;
+        margin: 10% auto;
+        background: #fff;
+        }
+    </style>          
+	</head>
+	<body class="is-preload">
+ 	    {% include 'kpop_modal.html'  ignore missing %}	  
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="/" class="logo">
+									<span class="symbol"><img src={{ url_for('static',filename="images/logo.svg")}} alt="" /></span><span class="title">Early Bird</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+	        	<!-- Menu -->
+				    <nav id="menu">
+					    <h2>Menu</h2>
+					    <ul>
+						    <li><a href="/">Home</a></li>
+						    <li><a href="/level_1">K-pop Funny</a></li>
+						    <li><a href="/level_2">Talk Funny</a></li>
+						    <li><a href="/level_3">News Funny</a></li>
+						    <li><a href="/level_4">About</a></li>
+					    </ul>
+				    </nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+						    <h3>문제를 풀기 전에 먼저 노래를 감상해볼까요?</h3>
+							<h2>소녀시대-다시 만난 세계</h2>
+							<h2 id = "titles" style="display: none;">다시만난세계</h2> 
+							<div class="video-container">
+							    <iframe width=100% max-width="560px" height=auto  src="https://www.youtube.com/embed/0k2Zzkw_-0I" 
+								title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+							<hr > 
+                            <h3> [ 노래 설명 ] </h3>
+							<p> 이 노래는 '이제 막 세상으로 나서는 소녀들이 함께 시련을 헤쳐 나가라는' 의미를 담고 있습니다. </p> 
+							<p> #나선다 : go out , &nbsp; #시련 : hardship</p>
+							<hr >
+                            
+							<!--문제 1번-->
+							{% include 'kpop_tts(1번문제).html'  ignore missing %}   
+					    
+ 							<hr >
+							
+ 							<!--문제 2번-->
+ 							{% include 'kpop_unmask(2번문제).html'  ignore missing %} 
+ 							<hr>
+ 							
+							<!--문제 3번-->
+					        <h2> Q3. 다음 보기는 "소녀시대-다시 만난 세계" 가사 중 일부를 이미지로 생성하였습니다.<br>
+					             '문제생성' 누르고 가장 어울리는 문장을 골라주세요.<a  style="color:#DDA0DD;" href="#openModal3">  info</a></h2>
+                            <input type = "button" id="create_problem" value = "문제 생성"> 
+                            <span class="fa-2x" id = "sum_ing" style="display:none"><i class="fas fa-cog fa-spin"></i></span>
+                            <script>
+                                $('#create_problem').click(function(){
+                                    $("#sum_ing").show();
+                                    var lyrics1 =  $("#kpop_image_radio_1").text();
+                                    var lyrics2 =  $("#kpop_image_radio_2").text();
+                                    var lyrics3 =  $("#kpop_image_radio_3").text();
+                                    var lyrics4 =  $("#kpop_image_radio_4").text();
+                                    var postdata = {'lyrics1': lyrics1,'lyrics2': lyrics2,'lyrics3': lyrics3,'lyrics4': lyrics4 };
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '{{url_for("ajax_create_kpop_image")}}',
+                                        data: JSON.stringify(postdata),
+                                        dataType : 'JSON',
+                                        contentType: "application/json",
+                                        success: function(data){
+                                            $("#kpop_image").attr("src", data.result2['image']) ;
+                                            $("#Toggle").text(data.result2['answer']) ;
+                                            $("#Toggle").hide();
+                                            $("#kpop_image").show();      
+                                            $("input:radio[name='flexRadioDefault']").prop('checked', false); 
+                                            $("#sum_ing").hide();
+                                        },
+                                        error: function(request, status, error){
+                                            alert('ajax 통신 실패')
+                                            alert(error);
+                                        }
+                                    })
+                                })
+                            </script>
+                            <br>					             
+                            <img id= 'kpop_image' src="{{ image }}" alt="kpop_image" style="display: none;">
+                            <br>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" id = 'kpop_image_radio_1' for="flexRadioDefault1"> {{kpop_image_texts1}}</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                <label class="form-check-label" id = 'kpop_image_radio_2'for="flexRadioDefault2"> {{kpop_image_texts2}}</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                                <label class="form-check-label" id = 'kpop_image_radio_3'for="flexRadioDefault3"> {{kpop_image_texts3}}</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                                <label class="form-check-label" id = 'kpop_image_radio_4'for="flexRadioDefault4"> {{kpop_image_texts4}}</label>
+                            </div>                    
+                            <button id="btn_toggle">정답</button> <button id="Toggle" style="display: none;">{{answer}}</button>							
+                             		
+                             		
+		        
+						</div>
+					</div>
+				
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+	     <!-- Scripts -->
+        	<script src={{ url_for('static',filename="assets/js/jquery.min.js")}}></script>
+			<script src={{ url_for('static',filename="assets/js/browser.min.js")}}></script>
+			<script src={{ url_for('static',filename="assets/js/breakpoints.min.js")}}></script>
+			<script src={{ url_for('static',filename="assets/js/util.js")}}></script>
+			<script src={{ url_for('static',filename="assets/js/main.js")}}></script>
+
+	</body>
+</html>

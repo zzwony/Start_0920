@@ -1,0 +1,31 @@
+{% block content %}
+<div id="openModal1" class="modalWindow">
+	<div>
+		<h2>TTS & Dictation</h2>
+		<p>이 문제는 <a href="https://wikidocs.net/15213" target="_blank">Google Text to Speech API</a> TTS를 이용해서<br>
+		임의로 노래 가사 일부분을 추출하여, mp3 녹음파일로 저장 후<br>
+		음성파일을 생성 하였습니다. <br></p>
+		<a href="#ok" title="Ok" class="ok">Ok</a>
+	</div>
+</div>   
+<div id="openModal2" class="modalWindow">
+	<div>
+		<h2>Masked Part Guessing</h2>
+		<p>이 문제는 <a href="https://huggingface.co/klue/bert-base" target="_blank">bert-base</a>모델을 사용 하였으며,
+		<a href="https://wikidocs.net/153992" target="_blank">Masked</a>모델을 만들었습니다.<br>
+		top_k로 500개 예측 단어 출력하여 상위 3개, 최하위 1개 추출 후<br>
+		노래 가사 중 4개의 문장을 추출하여, 질문과 문제를 생성하였습니다."<br></p>
+		<a href="#ok" title="Ok" class="ok">Ok</a>
+	</div>
+</div>   
+<div id="openModal3" class="modalWindow">
+	<div>
+		<h2>Image Generation & Interpreting</h2>
+		<p>이 문제는 노래 가사 중 4개의 문장을 추출하여<br>
+		Googletrans를 이용하여 한글 문장을 영어로 번역합니다.<br>
+	    <a href="https://platform.openai.com/account/api-keys" target="_blank">Open Api-keys</a>로 DALL.E 2를 불러와<br>
+	    번역된 노래 가사를 통해 이미지를 생성하였습니다.</p>
+		<a href="#ok" title="Ok" class="ok">Ok</a>
+	</div>
+</div>  
+{% endblock %}
